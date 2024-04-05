@@ -116,6 +116,7 @@ if ! shopt -oq posix; then
   fi
 fi
 
+export PATH="$HOME/k9s/execs:$PATH"
 export PATH="$HOME/.tmuxifier/bin:$PATH"
 export GOROOT=/usr/local/go
 export GOPATH=$HOME/go
