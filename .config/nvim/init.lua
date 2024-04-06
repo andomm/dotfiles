@@ -1,8 +1,5 @@
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
-vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
-vim.g.termguicolors = true
 
 vim.opt.number = true
 vim.opt.relativenumber = true
@@ -70,11 +67,6 @@ vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagn
 -- NOTE: This won't work in all terminal emulators/tmux/etc. Try your own mapping
 -- or just use <C-\><C-n> to exit terminal mode
 vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
-vim.keymap.set('i', '<C-Y>', 'copilot#Accept("\\<CR>")', {
-  expr = true,
-  replace_keycodes = false,
-})
-vim.g.copilot_no_tab_map = true
 -- TIP: Disable arrow keys in normal mode
 -- vim.keymap.set('n', '<left>', '<cmd>echo "Use h to move!!"<CR>')
 -- vim.keymap.set('n', '<right>', '<cmd>echo "Use l to move!!"<CR>')
@@ -682,6 +674,7 @@ require('lazy').setup({
       -- - sd'   - [S]urround [D]elete [']quotes
       -- - sr)'  - [S]urround [R]eplace [)] [']
       require('mini.surround').setup()
+      require('mini.starter').setup()
 
       -- Simple and easy statusline.
       --  You could remove this setup call if you don't like it,
