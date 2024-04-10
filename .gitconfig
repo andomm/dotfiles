@@ -1,0 +1,95 @@
+# This is Git's per-user configuration file.
+[user]
+	name = Antton Anttila
+	email = antton.anttila@qvantel.com
+
+[alias]
+s = status
+co = checkout
+br = branch
+g = grep
+l = log
+cob = checkout -b
+done = !git push --set-upstream origin HEAD
+undo = reset --soft HEAD~1
+
+# Add all and show status
+aa  = !git add -A && git s
+
+
+# Oneline log
+lol = log --oneline
+
+# Numbered oneline log
+lnl = "!f() { git log --oneline | nl | more; }; f"
+
+# Show name of current branch
+bc = branch --show-current
+
+# Show unstaged changes
+df = diff
+
+# Show staged changes
+ds = diff --staged
+
+# Fetch and prune branches
+fap = fetch --all --prune
+
+# Prune branch references
+rpo = remote prune origin
+
+# Amend last commit
+cane = commit --amend --no-edit --reset-author
+
+# Reword last commit
+reword = commit --amend --reset-author
+
+# Commit with message
+com = commit -m "$1"
+
+# Checkout from List
+col = "!f() { git co $(git-list-branches.sh $* | fzf); }; f"
+
+# List merged branched
+brm = branch --merged
+
+# Edit branch description
+bred = "!f() { git br --edit-description $(git-list-branches.sh $* | fzf); }; f"
+
+# Delete branch
+brd = "!f() { git br -d $(git-list-branches.sh $* | fzf); }; f"
+
+# Delete branch forcefully
+brdf = "!f() { git br -D $(git-list-branches.sh $* | fzf); }; f"
+
+# Drop and push
+pushdf = "!f() { git push -d origin $(git bc) && git push -u origin $(git bc); }; f"
+
+# Rebase N commits back
+rbn = "!f() { git rebase -i HEAD~$1; }; f"
+
+# Rebase <automatic> commits back
+rbna = "!f() { git rebase -i HEAD~$(git-rebase-distance.sh); }; f"
+
+# Push new branch
+pnb = "!f() { git push -u origin $(git bc); }; f"
+
+# Pop last commit
+plc = reset HEAD~1
+
+# Edit global config
+ceg = config --edit --global
+
+# Show last commit
+slc = diff HEAD~1
+
+[log]
+date = iso
+
+[branch]
+format = %(refname) %(description)
+
+[advice]
+detachedHead = false
+[core]
+autocrlf = false
