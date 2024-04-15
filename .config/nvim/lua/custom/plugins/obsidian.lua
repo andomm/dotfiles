@@ -14,7 +14,7 @@ return {
       },
     },
     daily_notes = {
-      folder = '~/my-notes/daily-notes/',
+      folder = 'daily-notes',
       date_format = '%d-%m-%Y',
     },
     ---@param title string|?
