@@ -45,7 +45,7 @@ cane = commit --amend --no-edit --reset-author
 reword = commit --amend --reset-author
 
 # Commit with message
-com = commit -m "$1"
+com = commit -m
 
 # Checkout from List
 col = "!f() { git co $(git-list-branches.sh $* | fzf); }; f"
