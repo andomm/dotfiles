@@ -1,7 +1,7 @@
 # This is Git's per-user configuration file.
 [user]
 	name = Antton Anttila
-	email = antton.anttila@qvantel.com
+	email = antton.anttila01@gmail.com
 
 [alias]
 s = status
@@ -9,6 +9,7 @@ co = checkout
 br = branch
 g = grep
 l = log
+p = push
 cob = checkout -b
 done = !git push --set-upstream origin HEAD
 undo = reset --soft HEAD~1
@@ -93,3 +94,7 @@ format = %(refname) %(description)
 detachedHead = false
 [core]
 autocrlf = false
+[init]
+	defaultBranch = main
+[pull]
+	rebase = false
