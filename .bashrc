@@ -122,6 +122,7 @@ export GOROOT=/usr/local/go
 export GOPATH=$HOME/go
 export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
 export PATH=$PATH:/opt/nvim-linux64/bin
+export PATH=$PATH:"$HOME/scripts"
 export EDITOR='nvim'
 export VISUAL='nvim'
 
