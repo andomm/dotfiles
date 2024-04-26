@@ -63,6 +63,8 @@ vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 vim.keymap.set('n', '<leader>k', '<cmd>cnext<CR>zz')
 vim.keymap.set('n', '<leader>j', '<cmd>cprev<CR>zz')
 vim.keymap.set('n', '<leader>f', '<cmd>NvimTreeToggle<CR>')
+vim.keymap.set('n', '<C-u>', '<C-u>zz')
+vim.keymap.set('n', '<C-d>', '<C-d>zz')
 
 vim.keymap.set('n', '<leader>w', '<cmd>write<CR>', { desc = 'Save file' })
 vim.keymap.set('n', '<C-q>', '<cmd>quit<CR>')

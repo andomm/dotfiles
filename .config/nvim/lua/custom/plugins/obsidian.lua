@@ -27,5 +27,6 @@ return {
     { '<leader>on', '<cmd>ObsidianToday<cr>', desc = 'ObsidianToday' },
     { 'gf', '<cmd>lua require("obsidian").util.gf_passthrough()<cr>', desc = 'Obsidian gf' },
     { '<leader>ch', '<cmd>lua require("obsidian").util.toggle_checkbox()<cr>', desc = 'Obsidian toggle checkbox' },
+    { '<leader>ob', '<cmd>ObsidianBacklinks<cr>', desc = 'ObsidianBacklinks' },
   },
 }
