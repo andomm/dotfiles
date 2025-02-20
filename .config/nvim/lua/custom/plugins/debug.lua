@@ -82,7 +82,7 @@ return {
         cwd = vim.fn.getcwd(),
         args = get_arguments,
         pythonPath = function()
-          return require('venv-selector').get_active_path()
+          return require('venv-selector').python()
         end,
       },
     }
@@ -98,12 +98,17 @@ return {
 
     require('nvim-dap-virtual-text').setup {}
     -- Basic debugging keymaps, feel free to change to your liking!
+    vim.keymap.set('n', '<leader>dt', function()
+      require('dap-python').test_method()
+    end, { desc = 'Debug: Test Method' })
+    vim.keymap.set('n', '<leader>dv', require('nvim-dap-virtual-text').toggle, { desc = 'Debug: Toggle Virtual Text' })
     vim.keymap.set('n', '<F5>', dap.continue, { desc = 'Debug: Start/Continue' })
     vim.keymap.set('n', '<F4>', dap.close, { desc = 'Debug: Stop' })
     vim.keymap.set('n', '<F1>', dap.step_into, { desc = 'Debug: Step Into' })
     vim.keymap.set('n', '<F2>', dap.step_over, { desc = 'Debug: Step Over' })
     vim.keymap.set('n', '<F3>', dap.step_out, { desc = 'Debug: Step Out' })
     vim.keymap.set('n', '<leader>b', dap.toggle_breakpoint, { desc = 'Debug: Toggle Breakpoint' })
+    vim.keymap.set('n', '<F6>', dap.pause, { desc = 'Debug: Pause' })
     vim.keymap.set('n', '<leader>B', function()
       dap.set_breakpoint(vim.fn.input 'Breakpoint condition: ')
     end, { desc = 'Debug: Set Breakpoint' })

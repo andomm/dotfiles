@@ -3,6 +3,13 @@
 	name = Antton Anttila
 	email = antton.anttila01@gmail.com
 
+[includeIf "gitdir:~/own_projects/"]
+	path = ~/own_projects/.gitconfig
+
+[includeIf "gitdir:~/integrations/"]
+	path = ~/integrations/.gitconfig
+
+
 [alias]
 s = status
 co = checkout
@@ -10,13 +17,17 @@ br = branch
 g = grep
 l = log
 p = push
+pfwl = push --force-with-lease
 cob = checkout -b
 done = !git push --set-upstream origin HEAD
 undo = reset --soft HEAD~1
 
+
+# Change branch name
+bn = branch -m
+
 # Add all and show status
 aa  = !git add -A && git s
-
 
 # Oneline log
 lol = log --oneline
@@ -72,6 +83,9 @@ rbn = "!f() { git rebase -i HEAD~$1; }; f"
 # Rebase <automatic> commits back
 rbna = "!f() { git rebase -i HEAD~$(git-rebase-distance.sh); }; f"
 
+#Rebase from branch
+rbf = "!f() { git rebase -i $(git-list-branches.sh $* | fzf); }; f"
+
 # Push new branch
 pnb = "!f() { git push -u origin $(git bc); }; f"
 
@@ -89,6 +103,7 @@ date = iso
 
 [branch]
 format = %(refname) %(description)
+	sort = -committerdate
 
 [advice]
 detachedHead = false
@@ -98,3 +113,7 @@ autocrlf = false
 	defaultBranch = main
 [pull]
 	rebase = false
+[column]
+	ui = auto
+[rerere]
+	enabled = true
