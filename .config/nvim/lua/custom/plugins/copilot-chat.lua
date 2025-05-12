@@ -23,6 +23,14 @@ return {
         end,
         desc = 'CopilotChat - Quick chat',
       },
+      -- close copilotchat
+      {
+        '<leader>cx',
+        function()
+          require('CopilotChat').close()
+        end,
+        desc = 'CopilotChat - Close',
+      },
     },
   },
 }
