@@ -57,9 +57,9 @@ if [ -n "$force_color_prompt" ]; then
 fi
 
 if [ "$color_prompt" = yes ]; then
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\W\[\033[00m\]\$ '
 else
-    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
+    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\W\$ '
 fi
 unset color_prompt force_color_prompt
 
@@ -134,3 +134,9 @@ export NVM_DIR="$HOME/.nvm"
 
 eval "$(tmuxifier init -)"
 . "$HOME/.cargo/env"
+alias tmc='/home/antton/tmc-cli-rust-x86_64-unknown-linux-gnu-v1.1.2'
+export TMC_LANGS_CONFIG_DIR='/home/antton/tmc-config'
+# source /home/antton/.local/share/tmc-autocomplete/tmc.bash
+# Generated for envman. Do not edit.
+[ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
+HISTTIMEFORMAT="%y-%m-%d %T "
