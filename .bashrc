@@ -55,9 +55,15 @@ if [ -n "$force_color_prompt" ]; then
 	color_prompt=
     fi
 fi
-
+NORMAL='\[\e[0m\]'
+YELLOW="\[\e[1;33m\]"
+GREEN="\[\e[1;32m\]"
+RED="\[\e[1;31m\]"
+BLUE="\[\e[1;34m\]"
+source ~/bin/kube-prompt.sh
+source ~/bin/git-branch.sh
 if [ "$color_prompt" = yes ]; then
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\W\[\033[00m\]\$ '
+    PS1="${BLUE}\W:${YELLOW}\$(__kube_ps1)${GREEN}\$(__git_branch) ${NORMAL}\$ "
 else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\W\$ '
 fi
