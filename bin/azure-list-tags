@@ -1,0 +1,3 @@
+#!/usr/bin/sh
+
+az acr repository show-tags -n qvitintegrations --repository $1 | jq -r ".[]"

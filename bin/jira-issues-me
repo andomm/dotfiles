@@ -1,0 +1,3 @@
+#!/usr/bin/sh
+
+jira issue list -s~Done -s~Canceled -a$(jira me) --columns Type,Key,Summary,Status,Assignee,Reporter,Created --order-by status,created
